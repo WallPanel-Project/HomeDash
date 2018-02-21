@@ -128,6 +128,18 @@
     <string name="title_setting_android_browsertype">Specify Browser Engine</string>
     <string name="default_setting_android_browsertype">Auto</string>
 
+    <string name="summary_setting_sensors_default">Not available</string>
+    <string name="key_settings_sensors_temperature">setting_sensors_temperature</string>
+    <string name="title_setting_sensors_temperature">Temperature</string>
+    <string name="key_settings_sensors_light">setting_sensors_light</string>
+    <string name="title_setting_sensors_light">Light</string>
+    <string name="key_settings_sensors_magneticField">setting_sensors_magneticField</string>
+    <string name="title_setting_sensors_magneticField">Magnetic Field</string>
+    <string name="key_settings_sensors_pressure">setting_sensors_pressure</string>
+    <string name="title_setting_sensors_pressure">Pressure</string>
+    <string name="key_settings_sensors_humidity">setting_sensors_humidity</string>
+    <string name="title_setting_sensors_humidity">Humidity</string>
+
     <string name="key_setting_test_zoomlevel">setting_test_zoomlevel</string>
     <string name="title_setting_test_zoomlevel">Browser Zoom Level</string>
     <string name="default_setting_test_zoomlevel">1.0</string>

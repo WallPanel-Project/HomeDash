@@ -170,6 +170,34 @@
                 android:defaultValue="@string/default_setting_mqtt_sensorfrequency" />
         </PreferenceCategory>
 
+        <PreferenceCategory android:title="Sensors">
+            <Preference
+                android:title="@string/title_setting_sensors_temperature"
+                android:key="@string/key_settings_sensors_temperature"
+                android:summary="@string/summary_setting_sensors_default"
+                android:enabled="false" />
+            <Preference
+                android:title="@string/title_setting_sensors_light"
+                android:key="@string/key_settings_sensors_light"
+                android:summary="@string/summary_setting_sensors_default"
+                android:enabled="false" />
+            <Preference
+                android:title="@string/title_setting_sensors_magneticField"
+                android:key="@string/key_settings_sensors_magneticField"
+                android:summary="@string/summary_setting_sensors_default"
+                android:enabled="false" />
+            <Preference
+                android:title="@string/title_setting_sensors_pressure"
+                android:key="@string/key_settings_sensors_pressure"
+                android:summary="@string/summary_setting_sensors_default"
+                android:enabled="false" />
+            <Preference
+                android:title="@string/title_setting_sensors_humidity"
+                android:key="@string/key_settings_sensors_humidity"
+                android:summary="@string/summary_setting_sensors_default"
+                android:enabled="false" />
+        </PreferenceCategory>
+
         <PreferenceCategory android:title="Android Specific">
             <SwitchPreference
                 android:defaultValue="@string/default_setting_android_startonboot"

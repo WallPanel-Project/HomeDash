@@ -6,6 +6,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -20,6 +22,7 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.wallpanelproject.android.R;
 
@@ -85,6 +88,13 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                             .getString(preference.getKey(), ""));
         }
 
+    }
+
+    private static void setSensorPreferenceSummary(Preference preference, List<Sensor> sensorList) {
+        if (sensorList.size() > 0) { // Could we have multiple sensors of same type?
+            preference.setSummary(sensorList.get(0).getName());
+            preference.setEnabled(true);
+        }
     }
 
     protected boolean isValidFragment(String fragmentName) {
@@ -163,6 +173,13 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             bindPreferenceSummaryToValue(findPreference(getString(R.string.key_setting_camera_facewake)));
             bindPreferenceSummaryToValue(findPreference(getString(R.string.key_setting_camera_qrcodeenabled)));
             bindPreferenceSummaryToValue(findPreference(getString(R.string.key_setting_camera_cameraid)));
+
+            SensorManager mSensorManager = (SensorManager) getActivity().getSystemService(SENSOR_SERVICE);
+            setSensorPreferenceSummary(findPreference(getString(R.string.key_settings_sensors_temperature)), mSensorManager.getSensorList(Sensor.TYPE_AMBIENT_TEMPERATURE));
+            setSensorPreferenceSummary(findPreference(getString(R.string.key_settings_sensors_light)), mSensorManager.getSensorList(Sensor.TYPE_LIGHT));
+            setSensorPreferenceSummary(findPreference(getString(R.string.key_settings_sensors_magneticField)), mSensorManager.getSensorList(Sensor.TYPE_MAGNETIC_FIELD));
+            setSensorPreferenceSummary(findPreference(getString(R.string.key_settings_sensors_pressure)), mSensorManager.getSensorList(Sensor.TYPE_PRESSURE));
+            setSensorPreferenceSummary(findPreference(getString(R.string.key_settings_sensors_humidity)), mSensorManager.getSensorList(Sensor.TYPE_RELATIVE_HUMIDITY));
         }
 
         @Override
